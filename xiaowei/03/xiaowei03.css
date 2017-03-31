@@ -1,0 +1,60 @@
+#main{
+	background-color: #eee;
+	padding: 20px;
+	border: solid 1px #999;
+	margin: 20px 20px auto 20px ;
+	width:auto;
+	/*wrong*/
+}
+body{
+	font: 14px black ;
+
+}
+#lside{
+	float: left;
+	width: 160px;
+	height: 80px;
+	padding: 20px;
+	margin-right: 20px;
+	border: solid 1px #999;
+	background-color: white;
+	margin-bottom: 20px;
+
+}
+.picture{
+	border: solid 1px #999;
+	width:80px;
+	height: 80px;
+	background-color: #eee;
+	text-align: center;
+}
+#name {
+	float: right;
+	width: 60px;
+
+}
+#rside{
+	float: right;
+	width: 80px;
+	height: 380px;/*80×4+20×3=380*/
+	padding: 20px;
+	border: solid 1px #999;
+	background-color: white;
+    margin-bottom: 20px;
+}
+p.person{
+	border: solid 1px #999;
+	width,height: 80px;
+	background-color: #eee;
+	text-align: center;
+}
+#artical{
+	width: auto;
+	height: auto;
+	border: solid 1px #999;
+	background-origin: #eee;
+	padding: 20px;
+	margin-left: 240px;
+	margin-right: 160px;
+	margin-bottom: 20px;
+}
