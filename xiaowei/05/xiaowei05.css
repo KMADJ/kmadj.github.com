@@ -1,0 +1,140 @@
+
+#header{
+	background-color:#3D3434;
+	padding:10px 20px 10px 20px;
+	background-image: url(baidu.jpg);
+	background-repeat: no-repeat;
+	background-position:10px 10px;
+	height: 80px;
+	}
+
+body{
+	background-color:#E5DEDE;
+	font-size:14px;
+	line-height:1.5em;
+}
+nav ul{
+	float:right;
+	font-size:18px;
+	height: 80px;
+	margin: 0;
+}
+nav li {
+	float:left;
+	margin-right:10px;
+	line-height: 80px;
+}
+nav a{
+	color: white;
+	text-decoration: none;
+}
+.whole{
+	margin:10px;
+	padding:20px 10px 20px 10px;
+	border:outset 4px #CCC7C7;
+	background-color:#f9f9f9;
+}
+.h1{
+	font-size:20px;
+}
+.h2{
+	font-size:16px;
+	color:#CCC7C7;
+}
+.h3{
+	font-size:12px;
+	color: #CCC7C7;
+}
+.p{
+	text-indent:2em;
+}
+.picture{
+	width:120px;
+	height:100px;
+}
+ul{
+	list-style-type:none;
+}
+.smallpic{
+	border:solid 1px #666666;
+	margin:10px;
+	padding:10px;
+    width: 120px;
+    height: 150px;
+	text-align:center;
+	float: left;
+}
+#bg{
+	border:solid  black 1px;
+	width:100%;
+	border-collapse:collapse;
+}
+}
+#bg td,th {
+	border:solid 1px black;
+}
+	
+.theline{
+	background-color:#3D3434;
+	color: white;
+}
+.finline{
+	background-color:#D8D8D8;
+}
+
+.th2{
+	font-size:16px;
+	color:#050505;
+}
+#table{
+	border:none;
+	margin-left: 50px;
+}
+.th{
+	text-align:right;
+}
+.td{
+	text-align:left;
+}
+.td1{
+	font-size:14px;
+	color:#CCC7C7;
+}
+.textarea{
+	text-align:right;
+	vertical-align:top;
+}
+.submit{
+    width:100%;
+	height:40px;
+	background-color:#4272F7;
+	color:#FFFFFF;
+	font-size: 20px;
+}
+.submit{
+	background-color:blue ;
+	height: 40px;
+	width: 100%;
+	color: white;
+	font-size: 20px;
+	border-radius: 5px;
+
+}
+#footer{
+	background-color:#000000;
+	width:100%;
+	text-align:center;
+	color:#FFFFFF;
+	font-size:12px;
+	height: 60px;
+}
+
+/*任务五新加内容*/
+#sidebar{
+	width: 400px;
+	float: right;
+}
+#main{
+	margin-right: 440px;
+
+}
