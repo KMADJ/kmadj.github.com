@@ -1,34 +1,32 @@
 
 #header{
 	background-color:#3D3434;
-	padding:10px 20px 10px 20px;
-	height:80px;
+    height: 80px;
+    background-image: url(baidu.jpg);
+    background-repeat: no-repeat;
+    background-position: 10px 20px;
+    font-size: 16px;
 	}
-#header img{
-	border:none;
-	margin:10px;
 
+
+#header ul{
+	float:right;
+    height: 80px;
+}
+#header ul li{
+	float:left;
+	margin-right:10px;
+	line-height: 80px;
+	list-style: circle;
+}
+#header a{
+	color: white;
+	text-decoration: none;
 }
 body{
 	background-color:#E5DEDE;
 	font-size:14px;
 	line-height:1.5em;
-}
-#header ul{
-	float:right;
-	margin:10px;
-	color:#F9F9F9;
-	font-size:14px;
-	height:80px;
-}
-#header ul li{
-	float:left;
-	margin-right:10px;
-
-}
-#header a{
-	text-decoration:none;
-        line-height:80px;
 }
 .whole{
 	margin:10px;
@@ -89,7 +87,7 @@ ul{
 }
 #table{
 	border:none;
-	margin-left:20%;
+	margin-left:400px;
 }
 .th{
 	text-align:right;
