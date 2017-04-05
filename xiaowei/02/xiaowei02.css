@@ -3,6 +3,7 @@
 	background-color:#3D3434;
 	padding:10px 20px 10px 20px;
 	overflow:auto;
+	height:80px;
 	}
 #header img{
 	border:none;
@@ -19,11 +20,17 @@ body{
 	margin:10px;
 	color:#F9F9F9;
 	font-size:12px;
+	height:80px;
+	font-size:16px;
 }
 #header ul li{
 	float:left;
 	margin-right:10px;
+	line-height:80px;
+}
+#header a{
 	text-decoration:none;
+	
 }
 .whole{
 	margin:10px;
