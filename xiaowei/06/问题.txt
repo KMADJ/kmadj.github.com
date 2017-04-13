@@ -20,12 +20,56 @@
 
 7、总结float的类型和注意事项。
 8、左对齐和右对齐怎么设置出来？
+答：text-align只应用于块状元素，值是left。所以对行内元素设置居中是没有效果的。
+
 9、pink区的内部文字和分区线怎么设置？有没有设置线条的更简单的方法？
+答：关于分区线现在只想到三种方法。一是用设置边框线的方法。二是设置一个绝对定位的div。三是利用before伪类加绝对定位的方法。
+
 10、为什么在给3.jpg和72px引号定义absolute时会跑出本身的父元素而将自己的父元素当做整个html？
+答：因为当时本身的父元素的position值为static。
+
 11、怎么清除定位和浮动元素周围的文字？
+
 12、css中的:before和:after是什么意思？背景图中的background-size是什么意思？
 答：css中before选择器是在被选元素的前面插入内容，用content来指定要插入的内容，可以插入图片或文字。在第一个大图里，用：before来插入一个背景颜色，content设置为空，即conten="";
 :after和before用法一致，只不过是在被选元素的后面插入内容。
+
+13、用css绘制三角形：
+上三角形：
+#triangle-up {
+    width: 0;
+    height: 0;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-bottom: 100px solid red;
+}
+下三角形：
+#triangle-down {
+    width: 0;
+    height: 0;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-top: 100px solid red;
+}
+尖角向左三角形：
+#triangle-left {
+    width: 0;
+    height: 0;
+    border-top: 50px solid transparent;
+    border-right: 100px solid red;
+    border-bottom: 50px solid transparent;
+}
+尖角向右三角形：
+#triangle-right {
+    width: 0;
+    height: 0;
+    border-top: 50px solid transparent;
+    border-left: 100px solid red;
+    border-bottom: 50px solid transparent;
+}
+
+14、为文本实现两端对齐的方法：
+答：css中有一个text-align：justify;可以实现两端对齐。
 
 
 
@@ -35,3 +79,5 @@
 1、可以同时为一个元素设置float和position。
 2、无论是行内元素还是块状元素都可以设置float和position。
 3、css有自己默认的margin和padding，这会影响在css中我们自己设定的值，所以可以在css里写下*{margin:0;padding:0:}来清除默认格式。
+4、text-align只能用于块状元素，vertical-align只能用于行内元素。
+5、图片上有另加的字时可将图片设置为背景图片，可以不用将其直接用img插入。

@@ -123,10 +123,50 @@ div #header {
 	margin-top: 60px;
 	overflow: hidden;
 }
+#btright1 {
+	height: 275px;
+	width: 458px;
+	position: relative;
+}
 #btright img {
-	display: inline-block;
 	width: 458px;
 	height: 275px;
+}
+#btrightqian{
+	height: 61px;
+	width: 458px;
+	position: absolute;
+	bottom: 0px;
+	background-color: #9b9999;
+	opacity:0.7;
+}
+#btrightqian:before{
+	content: "";
+	position: absolute;
+	width: 3px;
+	height: 44px;
+	background-color: #08A51A;
+	left: 40px;
+	bottom: 8px;
+}
+#btrightqian .big{
+	color: #fff;
+	font-size: 26px;
+	font-family:"微软雅黑";
+	position: absolute;
+	left: 55px;
+	bottom: 16px;
+}
+#btrightqian .small{
+	color: #08A51A;
+	font-size: 12px;
+	font-family: "微软雅黑";
+	font-style: italic;
+	font-weight: bold;
+	position: absolute;
+	left: 164px;
+	bottom: 16px;
+    letter-spacing: 140%;
 }
 #btright2{
 	width: 458px;
@@ -134,19 +174,35 @@ div #header {
 	background-color: #eeedd6;
 	overflow:hidden;
 	margin-top: 30px;
+	position: relative;
 }
-#btright2 li{
-	list-style: circle;
+#sj {
+	position: absolute;
+	margin: 20px 30px;
+	width: 419px;
+	height: 98px;
+}
+#sj p:before{
+	content: "";
+	width: 0;
+    height: 0;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-bottom: 8px solid black;
+    position: relative;
+    top: -12px;
 }
 .qd1{
-	text-align: left;
+	position: relative;
+	left: 10px;
 	font-size: 16px ;
 	color: #5a5b5b;
-	font-family: "宋体";
+	font-family: "宋体";	
 	line-height: 40px;
 }
 .qd2{
-	text-align: right;
+	position:relative;
+	right: 0px;
 	font-size:12px;
 	color: #5a5b5b;
 	font-style: italic;
@@ -157,7 +213,17 @@ div #header {
 	width: 260px;
 	height: 160px;
 	background-color: #d45d5c;
-	float: left;
+	position: absolute;
+	bottom: 0px;
+	left: 0px;
+}
+#table{
+	height: 86px;
+	width: 190px;
+	border-left: 2px #fff solid;
+	position: absolute;
+	top: 37px;
+	right: 4px;
 }
 .th{
 	font-size: 21px;
@@ -177,16 +243,33 @@ div #header {
 	height: 160px;
 	width: 178px;
 	margin:0 10px;
-	float: left;
+	position: absolute;
+	left: 270px;
+	top: 158px;
+	box-sizing: border-box;
+}
+#hello p{
 	font-size: 14px;
 	color: #5a5b5b;
 	font-family: "黑体";
-	font-style:italic;
+	font-style: italic;
+	line-height: 16px;
+	padding-top: 20px;
 }
-#hello span {
+#hello p span {
 	color: #d45d5c;
 	font-family: "黑体";
-	font-size: 20px;
+	font-size: 72px;
+}
+#hello1{
+	float: left;
+	margin:16px 13px -35px -43px;
+	height: 30px;
+}
+#hello2{
+	float: right;
+	margin: 26px 5px 0 0;
+	height: 30px;
 }
 #the{
 	width: 415px;
@@ -209,25 +292,21 @@ div #header {
 	overflow: hidden;
 	position: relative;
 	line-height: 16px;
+	top: 20px;
 	}
 #qian img{
 	width: 200px;
 	height: 320px;
-	position: absolute;
-	top: 100px;
-	right: 0px;
-	margin-top: 10px;
-	margin-bottom: 10px;
-	margin-left: 10px;
+	float: right;
+	padding: 10px 0px 10px 10px;
 }
 #qian p span{
 	float: left;
 	font-size: 70px;
 	color: #f5e327;
 	font-family: "微软雅黑";
-	margin-right: 10px;
-	margin-bottom: 25px;
-	margin-top: 20px;
+	padding: 0px 10px 30px 0px;
+	margin-top: 25px;
 }
 #qian p{
 	clear: left;
