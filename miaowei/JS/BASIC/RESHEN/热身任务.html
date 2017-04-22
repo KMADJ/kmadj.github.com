@@ -1,0 +1,167 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>热身任务</title>
+<link href="reshen.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<div id="main" >
+<h1>请为下列div设置样式：<input type="button" value="点击设置" id="submit" /></h1>
+
+<div id="box"></div>
+ <div id="side">
+ 请选择背景色: <input value="红" type="button" id
+ ="red" /> <input value="黄" type="button" id
+ ="yellow" /> <input value="蓝" type="button" id="blue" /> <br/>
+请选择宽(px):  <input value="200" type="button" class="orange" id="widtwo"/> <input value="300" type="button" class="orange" id="widthr"/> <input value="400" type="button" class="orange" id="widfor"/><br/>
+请选择高(px):  <input value="200" type="button" class="orange" id="heitwo"/> <input value="300" type="button" class="orange" id="heithr"/> <input value="400" type="button" class="orange" id="heifor"/><br/>
+
+<input type="reset" value="恢复" class="foot"id="zero"/>
+<input type="submit" value="确定" class="foot" id="keep"/>
+ </div>
+</div>
+
+<script type="text/javascript">
+var sub=document.getElementById('submit');
+var side=document.getElementById("side");
+sub.onclick=show;
+function show(){	
+	side.style.display="block";
+}
+
+var red=document.getElementById("red");
+var box=document.getElementById("box");
+red.onmouseover=chColRed;
+function chColRed(){
+	red.style.background="#FF0000";
+	box.style.background="#FF0000";
+	}
+red.onmouseout=reColRed;
+function reColRed(){
+	red.style.background="#6F0";	
+	}
+	
+var yellow=document.getElementById("yellow");
+yellow.onmouseover=chColYel;
+function chColYel(){
+	yellow.style.background="#E5C62B";
+	box.style.background="#FC0";
+	}
+yellow.onmouseout=reColYel;
+function reColYel(){
+	yellow.style.background="#FC0";	
+	}
+
+var blue=document.getElementById("blue");
+blue.onmouseover=chColBlu;
+function chColBlu(){
+	blue.style.background="#2BB8CE";
+	box.style.background="#6CF";
+	}
+blue.onmouseout=reColBlu;
+function reColBlu(){
+	blue.style.background="#6CF";	
+	}
+	
+var widtwo=document.getElementById("widtwo");
+widtwo.onclick=widTwoCli;
+function widTwoCli(){
+	box.style.width="200px";
+	}
+widtwo.onmouseover=widTwoOve;
+function widTwoOve(){
+	widtwo.style.background="#F4B429";
+}
+widtwo.onmouseout=widTwoOut;
+function widTwoOut(){
+	widtwo.style.background="#f7f7f7";
+}
+
+var widthr=document.getElementById("widthr");
+widthr.onclick=widThrCli;
+function widThrCli(){
+	box.style.width="300px";
+	}
+widthr.onmouseover=widThrOve;
+function widThrOve(){
+	widthr.style.background="#F4B429";
+}
+widthr.onmouseout=widThrOut;
+function widThrOut(){
+	widthr.style.background="#f7f7f7";
+}
+
+var widfor=document.getElementById("widfor");
+widfor.onclick=widForCli;
+function widForCli(){
+	box.style.width="400px";
+	}
+widfor.onmouseover=widForOve;
+function widForOve(){
+	widfor.style.background="#F4B429";
+}
+widfor.onmouseout=widForOut;
+function widForOut(){
+	widfor.style.background="#f7f7f7";
+}
+
+var heitwo=document.getElementById("heitwo");
+heitwo.onclick=heiTwoCli;
+function heiTwoCli(){
+	box.style.height="200px";
+	}
+heitwo.onmouseover=heiTwoOve;
+function heiTwoOve(){
+	heitwo.style.background="#F4B429";
+}
+heitwo.onmouseout=heiTwoOut;
+function heiTwoOut(){
+	heitwo.style.background="#f7f7f7";
+}
+
+var heithr=document.getElementById("heithr");
+heithr.onclick=heiThrCli;
+function heiThrCli(){
+	box.style.height="300px";
+	}
+heithr.onmouseover=heiThrOve;
+function heiThrOve(){
+	heithr.style.background="#F4B429";
+}
+heithr.onmouseout=heiThrOut;
+function heiThrOut(){
+	heithr.style.background="#f7f7f7";
+}
+
+var heifor=document.getElementById("heifor");
+heifor.onclick=heiForCli;
+function heiForCli(){
+	box.style.height="400px";
+	}
+heifor.onmouseover=heiForOve;
+function heiForOve(){
+	heifor.style.background="#F4B429";
+}
+heifor.onmouseout=heiForOut;
+function heiForOut(){
+	heifor.style.background="#f7f7f7";
+}
+
+var keep=document.getElementById("keep");
+keep.onclick=hidden;
+function hidden(){
+	side.style.display="none";
+}
+var zero=document.getElementById("zero");
+zero.onclick=clearAll;
+function clearAll(){
+	box.style.width="100px";
+	box.style.height="100px";
+	box.style.background="#fff";
+	
+}
+</script>
+</body>
+</html>
