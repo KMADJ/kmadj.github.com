@@ -1,0 +1,160 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>属性作业-图片切换.html</title>
+</head>
+<style type="text/css">
+*{
+	margin:0;
+	padding:0;
+}
+#whlpg{
+	height:520px;
+	width:420px;
+	background-color:#CF9;
+	text-align:center;
+	padding:20px;
+	margin:0 auto;
+}
+#par{
+	margin:20px;
+}
+#main{
+	width:350px;
+	height:350px;
+	border:4px solid #ccc;
+	margin:0 auto;
+	position:relative;
+	background-color:#fff;
+	overflow:hidden;
+}
+#top{
+	position:absolute;
+	top:0;
+	width:350px;
+	height:30px;
+	background-color:#FF6;
+	opcity:0.8;
+	filter:alpha(opcity:70);
+	text-align:center;
+}
+#img1{
+	width:350px;
+	height:350px;
+	overflow:hidden;	
+}
+#left{
+	width:40px;
+	height:40px;
+	background-color:#CF9;
+	opacity:0.8;
+	position:absolute;
+	left:10px;
+	top:155px;
+	font-size:30px;
+	font-weight:bold;
+	border:1px solid #333;
+}
+#btm{
+	position:absolute;
+	bottom:0;
+	width:350px;
+	height:30px;
+	background-color:#FF6;
+	opcity:0.8;
+	filter:alpha(opcity:70);
+	text-align:center;
+}
+#right{
+	width:40px;
+	height:40px;
+	background-color:#CF9;
+	opacity:0.8;
+	position:absolute;
+	right:10px;
+	top:155px;
+	font-size:30px;
+	font-weight:bold;
+	border:1px solid #333;
+	
+}
+#left:hover{
+	background-color:#F96;
+}
+#right:hover{
+	background-color:#F96;
+}
+
+</style>
+<script type="text/javascript">
+window.onload=function(){
+var oCrl=document.getElementById("circle");	
+var oItn=document.getElementById("inturn");		
+var oP=document.getElementById("par");	
+var oMain=document.getElementById("main");	
+var oTop=document.getElementById("top");
+var oImg=document.getElementById("img1");
+var oBtm=document.getElementById("btm");	
+var oLeft=document.getElementById("left");	
+var oRight=document.getElementById("right");				
+var num=0;	
+var descr=["肃杀女将军","弗兰奇","远方的翅膀","红妆倾城"]	;
+var pic=["img/1.jpg","img/2.jpg","img/3.jpg","img/4.jpg"];
+
+function show(){
+	oImg.src=pic[num];
+	oTop.innerHTML=num+1+"/"+pic.length;
+	oBtm.innerHTML=descr[num];
+	};
+show();
+
+oCrl.onclick=function(){
+	oP.innerHTML="图片可从最后一张跳到第一张循环切换";
+	oRight.onclick= function (){
+		 num++;
+		 if(num==pic.length){num=0;}
+	     show();
+	};
+
+oLeft.onclick=function(){
+	     num--;
+		 if(num==-1){num=pic.length-1;};
+	     show();
+	};
+};
+oItn.onclick=function(){
+	oP.innerHTML="图片只能到最后一张或第一张切换";
+	oRight.onclick= function (){
+		 num++;
+		 if(num==4){num=3;alert("已经是最后一张啦~~")}
+	     show();
+	};
+
+oLeft.onclick=function(){
+	     num--;
+		 if(num==-1){num=0;alert("已经是第一张啦~~")};
+	     show();
+	};	
+	};
+};
+</script>
+
+<body>
+<div id="whlpg">
+
+<input type="button" value="循环切换" id="circle"/>
+<input type="button" value="顺序切换" id="inturn"/>
+<p id="par">请选择切换模式</p>
+<div id="main">
+<p id="top">数量加载中……</p>
+<img id="img1" src=""  />
+<a id="left"> <</a>
+<a id="right"> ></a>
+
+<p id="btm">图片加载中……</p>
+
+</div>
+</div>
+</body>
+</html>
