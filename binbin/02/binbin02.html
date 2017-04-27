@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>binbin02</title>
+</head>
+
+<body>
+ <h3>空气优良指数高于60城市列表</h3>
+  <ul id="list">
+<!--   
+    <li>第一名：福州（样例），10</li>
+      <li>第二名：福州（样例），10</li> -->
+  </ul>
+
+<script type="text/javascript">
+window.onload=function(){
+var arr = [
+  ["北京", 90],
+  ["上海", 50],
+  ["福州", 10],
+  ["广州", 50],
+  ["成都", 90],
+  ["西安", 100]
+];
+var rank=['第一名:','第二名：','第三名：','第四名：','第五名：'];
+var oUl=document.getElementById('list');
+	for(var i=0;i<arr.length;i++){
+		if(arr[i][1]>60){			
+			oUl.innerHTML+='<li>'+arr[i]+'</li>'
+			
+		}
+		}
+	
+	}
+</script>
+</body>
+</html>
