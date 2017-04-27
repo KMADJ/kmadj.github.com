@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>点击生成100个li（提高版）</title>
+</head>
+<style type="text/css">
+input{
+	width:120px;
+	height:40px;
+	border:2px solid #fff;
+	border-radius:10px;
+	background-color:#FCC;
+	color:#000;
+	}
+.box{
+	height:40px;
+	width:40px;
+	border:1px solid #000;
+	position:absolute;	
+	list-style:none;
+	text-align:center;
+	line-height:40px;
+	}
+</style>
+<script type="text/javascript">
+window.onload=function(){
+var oBtn=document.getElementById("btn");
+var oUl=document.getElementById("ul1");	
+var aLi=document.getElementsByTagName("li");
+var color=['#f00','#FFCC00','#1D4870','#CAF9C5'];
+oBtn.onclick=function(){
+	for(var i=0;i<100;i++){
+		var m=i%10;//横向
+		var n=parseInt(i/10);
+		var j=i%4;
+		oUl.innerHTML+='<li class="box" >'+i+'</li>';
+		aLi[i].style.left=10+m*50+'px';
+		aLi[i].style.top=60+n*50+'px';
+		aLi[i].style.backgroundColor=color[j];	
+     }
+	}
+}
+</script>
+<body>
+<input id="btn" type="button" value="点击生成100个li" />
+<ul id="ul1"></ul>
+ </body>
+</html>
