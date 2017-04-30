@@ -1,0 +1,90 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>模拟QQ列表</title>
+<style>
+*{margin:0;padding:0;list-style:none;}
+#list{
+	width:250px;
+	margin:0 auto;
+	border:1px solid #333;
+	margin-top:20px;
+	}
+h3{background:url(ico1.gif) no-repeat 5px center #ff9;
+   text-indent:20px;
+  }
+.ul1 li{text-indent:25px;}
+.ul1{display:none;}
+.active{background:url(ico2.gif) no-repeat 5px center #FFE6C6;}
+</style>
+<script>
+window.onload=function(){
+	var oList=document.getElementById('list');
+	var oH3=oList.getElementsByTagName('h3');
+	var oUl=oList.getElementsByClassName('ul1');
+	var aLi=null;
+	var arrLi=[];
+	var onOff=true;
+	for(var i=0;i<oH3.length;i++){
+		oH3[i].index=i;
+		oH3[i].onclick=function(){
+			for( var i=0; i<oH3.length; i++ ){
+				if( i != this.index ){
+					oUl[i].style.display = 'none';
+					oH3[i].className = '';
+				}}
+			if(this.className==''){
+			this.className='active';
+			oUl[this.index].style.display='block';
+			}
+			else{
+			this.className='';
+			oUl[this.index].style.display='none';	
+				}
+			}
+		}
+	for(var i=0;i<oUl.length;i++){
+		var aLi=oUl[i].getElementsByTagName('li');
+		for(var j=0;j<aLi.length;j++){
+			arrLi.push(aLi[j]);
+			}
+		}
+		for(var i=0;i<arrLi.length;i++){
+			arrLi[i].onclick=function(){
+				for(var i=0;i<arrLi.length;i++){
+			arrLi[i].style.background='none';}
+				this.style.background='#CFF9F8';
+				}
+			
+			}
+}
+</script>
+</head>
+
+<body>
+<div id='list'>
+<ul>
+<li><h3>我的好友</h3></li>
+<ul class='ul1'>
+<li>权志龙</li>
+<li>TOP</li>
+<li>太阳</li>
+<li>大声</li>
+<li>胜利</li>
+<li>张若昀</li>
+</ul>
+<li class='lis'><h3>企业</h3></li>
+<ul class='ul1'>
+<li>YG</li>
+<li>欢瑞</li>
+<li>华谊兄弟</li>
+</ul>
+<li class='lis'><h3>黑名单</h3></li>
+<ul class='ul1'>
+<li>黄子韬</li>
+<li>杨幂</li>
+</ul>
+</div>
+</body>
+</html>
