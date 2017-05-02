@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+</head>
+<body>
+请输入QQ号码：<input type="text" />
+<input type="button" value="判断" />
+<br />
+1、有没有输入<br />
+2、输入的是不是数字<br />
+3、不能有0在前面<br />
+4、不能是小数<br />
+5、输入的数字必须在5位以上、10位以内<br />
+<script>
+window.onload=function(){
+	var aBtn=document.getElementsByTagName('input');
+	var text='';
+	
+	aBtn[1].onclick=function(){
+		text=aBtn[0].value;
+		if(text==''){
+			alert('请输入5-10位QQ号码!');
+			}
+		else if(isNaN(text)){
+			alert('请输入数字!');
+			}
+		else if(parseInt(text)!=parseFloat(text)){
+			alert('请输入5-10位QQ号码!');
+			}
+		else if(text.charAt(0)==0){
+			alert('首位须为非0数字!');
+			}
+		else if(text.length<5||text.length>10){
+			alert('请输入5-10位QQ号码!');
+			}
+		else{
+			alert('您已正确输入QQ号！');
+			}
+		
+	}
+	}
+
+
+</script>
+</body>
+</html>
