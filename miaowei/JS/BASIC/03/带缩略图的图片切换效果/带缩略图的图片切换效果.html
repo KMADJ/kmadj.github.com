@@ -1,0 +1,170 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>带缩略图的图片切换效果</title>
+<style>
+*{margin:0;padding:0;}
+#div1{
+	width:700px;
+	height:500px;
+	position:absolute;
+	top:20px;
+	left:50%;
+	margin-left:-350px;
+	background:url(5.jpg) no-repeat;
+	background-size:700px 500px;
+	text-align:center;
+	}
+h3{
+	color:#333;
+	margin:5px;
+	}
+img{
+	width:650px;
+	height:430px;
+	background:#fff;
+	vertical-align:center;
+	}
+#div2{
+	position:absolute;
+	top:520px;
+	left:47%;
+	}
+ul li{
+	float:left;
+	margin:5px;
+	list-style:none;
+	width:10px;
+	height:10px;
+	border-radius:5px;
+	background:#ccc;
+	}
+#div3{
+	position:absolute;
+	top:450px;
+	left:45%;
+	}
+#div3 li{
+	display:none;
+    
+}
+#div3 ul li img{
+	width:90px;
+	height:70px;
+	}
+.bgr{background-color:#FC3;}		
+#left,#right{
+	width:60px;
+	height:60px;
+	background:#FCF;
+	text-align:center;
+	border-radius:30px;
+	vertical-align:center;
+	font-size:50px;
+	color:#fff;
+	font-weight:bolder;
+	opacity:0.8;
+	}	
+#left{
+	position:absolute;
+	top:50%;
+	margin-top:-30px;
+	left:10px;
+	}	
+#right{
+	position:absolute;
+	top:50%;
+	margin-top:-30px;
+	right:10px;
+	}
+#left:hover{
+	background:#FC3;
+	}
+#right:hover{
+	background:#FC3;
+	}
+
+</style>
+<script>
+window.onload=function(){
+	var oDiv1=document.getElementById('div1');
+	var oDiv2=document.getElementById('div2');
+	var oDiv3=document.getElementById('div3');
+	var oImg=document.getElementById('img1');
+	var oLeft=document.getElementById('left');
+	var oRight=document.getElementById('right');
+    var aLi=oDiv2.getElementsByTagName('li');
+	var aLi2=oDiv3.getElementsByTagName('li');
+	var arr=['1.jpg','2.jpg','3.jpg','4.jpg','5.jpg']
+	var num=0;
+	point();
+    function point(){
+		for(var i=0;i<aLi.length;i++){
+				aLi[i].className='';
+				}
+		aLi[num].className='bgr';		
+		}
+		
+	oRight.onclick=function(){
+		num++;
+		if(num==arr.length){
+			num=0;
+			}
+		oImg.src=arr[num];
+		point();
+		}
+		
+	oLeft.onclick=function(){
+		num--;
+		if(num==-1){
+			num=arr.length-1;
+			}
+		oImg.src=arr[num];
+		point();
+		}
+	for(var i=0;i<aLi.length;i++){
+		aLi[i].index=i;
+		aLi[i].onclick=function(){
+			oImg.src=arr[this.index];
+			for(var i=0;i<aLi.length;i++){
+				aLi[i].className='';}
+		aLi[this.index].className='bgr';
+			}
+		aLi[i].onmouseover=function(){
+			aLi2[this.index].style.display='block';
+			}
+		aLi[i].onmouseout=function(){
+			aLi2[this.index].style.display='none';
+			}
+		}
+	}
+</script>
+</head>
+<body>
+<div id='div1'>
+<h3>带缩略图的图片切换效果</h3>
+<img src='1.jpg' id='img1'/>
+<a id="left"> < </a>
+<a id="right"> > </a>
+</div>
+<div id="div2">
+<ul>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+</ul>
+</div>
+<div id="div3">
+<ul>
+<li ><img src='1.jpg' /></li>
+<li ><img src='2.jpg' /></li>
+<li ><img src='3.jpg' /></li>
+<li ><img src='4.jpg' /></li>
+<li ><img src='5.jpg' /></li>
+</ul>
+</div>
+</body>
+</html>
