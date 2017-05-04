@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>商品总价计算</title>
+		<style type="text/css">
+		li{
+		list-style: none;		
+		}
+		</style>
+		<script type="text/javascript">
+		window.onload=function(){			
+		    var oList=document.getElementById('list');
+		    var aLi=oList.getElementsByTagName('li'); 
+		    var aStrong=oList.getElementsByTagName('strong');
+		    var aEm=oList.getElementsByTagName('em');
+		    var aSpan=oList.getElementsByTagName('span');		   
+		    var oQua=document.getElementById('qua');
+		    var oPrice=document.getElementById('price');
+		    var oMax=document.getElementById('max');
+		    function count(){
+		    	var a=0;
+		    	var b=0;
+		    	var c=0;
+		    	for(var i=0;i<aSpan.length;i++){
+		    		a+=parseFloat(aSpan[i].innerHTML);
+		    		b+=parseFloat(aStrong[i].innerHTML);
+		    		if(parseFloat(aSpan[i].innerHTML)>0){
+		    			if(parseFloat(aEm[i].innerHTML)>c){
+		    				c=parseFloat(aEm[i].innerHTML);	
+		    			}    					    			
+		    		}
+		    }
+		    	oQua.innerHTML=a;
+		    	oPrice.innerHTML=b;
+		    	oMax.innerHTML=c;
+		    	
+		    }
+		    
+		    
+		    
+		    
+		    for (var i=0;i<aLi.length;i++){
+		    	tab(i);		    	
+		    }
+		    function tab(a){
+		    var aInp=aLi[a].getElementsByTagName('input');
+		    var oSpan=aLi[a].getElementsByTagName('span')[0];  
+		    var oStrong=aLi[a].getElementsByTagName('strong')[0];  
+		    var oEm=aLi[a].getElementsByTagName('em')[0];  		  
+		    var num=0;
+		    aInp[1].onclick=function(){
+		    	num++;
+		    	oSpan.innerHTML=num;
+		    	oStrong.innerHTML=num*oEm.innerHTML;
+		    	count();
+		}
+		    aInp[0].onclick=function(){
+		    	if(num>0){
+		    		num--;		    			    		
+		    	}
+		    	oSpan.innerHTML=num;
+		    	oStrong.innerHTML=num*oEm.innerHTML;
+		    	count();
+		}
+		    }
+		}
+
+		
+		
+		
+		</script>
+	</head>
+	<body>
+		<ul id="list">
+		<li><input type="button" value="-"> <span>0</span> <input type="button" value="+"> 
+		 单价：<em>10</em> 元 ； 小计：<strong>0</strong> 元</li>
+		<li><input type="button" value="-"> <span>0</span> <input type="button" value="+"> 
+		 单价：<em>11</em> 元 ； 小计：<strong>0</strong> 元</li>
+		 <li><input type="button" value="-"> <span>0</span> <input type="button" value="+"> 
+		 单价：<em>12</em> 元 ； 小计：<strong>0</strong> 元</li>
+		 <li><input type="button" value="-"> <span>0</span> <input type="button" value="+"> 
+		 单价：<em>13</em> 元 ； 小计：<strong>0</strong> 元</li>
+		 <li><input type="button" value="-"> <span>0</span> <input type="button" value="+"> 
+		 单价：<em>8</em> 元 ； 小计：<strong>0</strong> 元</li>
+		</ul>
+		<p id="par">
+		商品总件数为：<span id="qua">0</span>件<br />
+		总价为：<span id="price">0</span>元<br />
+		最贵商品单价为：<span id="max">0</span>元
+		</p>
+	</body>
+</html>
+		
