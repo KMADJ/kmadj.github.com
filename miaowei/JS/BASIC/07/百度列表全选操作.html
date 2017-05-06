@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="{CHARSET}">
+		<title>百度列表全选操作</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#list{
+			height: 400px;
+			width: 350px;
+			margin: 0 auto;
+			margin-top: 20px;
+		    font-size: 18px;	
+		}
+		li{
+			list-style: none;
+			padding: 5px;		
+		}
+		#btn{
+			font-size: 18px;
+			position: absolute;
+			top: 320px;
+			left:38%;
+		}
+	</style>	
+	<script type="text/javascript">
+		window.onload=function(){			
+			var oList=document.getElementById('list');
+			var oTick=document.getElementById('tick');
+			var aLi=document.getElementsByTagName('li');
+			var aInp=oList.getElementsByTagName('input');
+			var arr=['#E2F9DE','#F9FCC4'];
+			var str='';
+			var onOff=false;
+			for(var i=0;i<aLi.length;i++){
+				aLi[i].index=i;
+				aLi[i].style.background=arr[i%arr.length];
+				aLi[i].onmouseover=function(){
+					str=this.style.background;
+				    this.style.background='#ccc';					
+				}
+				aLi[i].onmouseout=function(){				
+				    this.style.background=str;					
+				}
+			}
+			oTick.onclick=function(){
+				if(oTick.checked){
+				for (var i=0;i<aInp.length;i++){
+					aInp[i].checked=true;					
+				}				
+				}else{
+					for (var i=0;i<aInp.length;i++){
+					aInp[i].checked=false;					
+				}
+				}
+			}
+			for(var i=0;i<aInp.length;i++){
+				aInp[i].onclick=function(){				
+				if(this.checked){
+					onOff=true;
+					for (var i=0;i<aInp.length;i++){
+						if(!aInp[i].checked){
+							onOff=false;
+						}
+					}
+				}else{
+					onOff=false;
+				}
+				if(onOff){
+					oTick.checked=true;
+				}else{
+					oTick.checked=false;
+				}
+				}
+				
+			}
+//			for (var i=0;i<aInp.length;i++){
+//				aInp[i].index=i;
+//				aInp[i].onclick=function(){
+//					oTick.checked=false;
+//					if(aInp[index].checked){			
+//					    this.checked=false;
+//					}else{
+//						this.checked=true;
+//					}	
+//				}
+//			}
+//			if(onOff){
+//				oTick.checked=true;
+//			}else{
+//				oTick.checked=false;
+//			}
+			/*function click(){
+				for(var i=0;i<aInp.length;i++){
+					if(aInp[i].checked){
+						aLi[i].style.background='#ccc';
+					}
+					else{
+						aLi[i].style.background=arr[i%2];
+					}
+				}
+			}
+			click();*/
+			
+		}
+	</script>
+	</head>
+	<body>
+		<ul id='list'>
+			<li><input type="checkbox" /> 王菲 流菲飞</li>
+			<li><input type="checkbox" /> 周杰伦 园游会</li>
+			<li><input type="checkbox" /> 王菲 流菲飞</li>
+			<li><input type="checkbox" /> 周杰伦 园游会</li>
+			<li><input type="checkbox" /> 王菲 流菲飞</li>
+			<li><input type="checkbox" /> 周杰伦 园游会</li>
+			<li><input type="checkbox" /> 王菲 流菲飞</li>
+			<li><input type="checkbox" /> 周杰伦 园游会</li>
+			
+		</ul>
+		<p id='btn'><input type="checkbox" id='tick' />全选</p>
+	</body>
+</html>
