@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src='myBarn.js'></script>
+		<script>
+			window.onload = function() {
+				var len = 20;
+				var str = '';
+				var aDiv = document.getElementsByTagName('div');
+				var num = 0;
+				var oBody = document.body;
+				var onOff = true;
+				for(var i = 0; i < len; i++) {
+					str += '<div style="width:50px; height:50px; background:red;position:absolute; top:0px; left:' + i * 60 + 'px;"></div>';
+				}
+				oBody.innerHTML = str;
+
+				document.onclick = function() {
+					if(onOff) {
+						clearInterval(timer);
+						num = 0;
+						var timer = setInterval(function() {
+							doMove(aDiv[num], 'top', 19, 500);
+							num++;
+							if(num == len) {
+								clearInterval(timer);
+								onOff=false;							
+							}
+						}, 50)				
+					}else{
+						clearInterval(timer);
+						var timer = setInterval(function() {
+							num--;											
+							if(num == 0) {
+								clearInterval(timer);
+								onOff=true;
+							}
+							doMove(aDiv[num], 'top', 19, 0,);	
+						}, 50)
+					}
+				}
+
+			}
+		</script>
+	</head>
+
+	<body>
+	</body>
+
+</html>

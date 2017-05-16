@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>点击加分效果</title>
+		<style type="text/css">
+			#div1{
+				height: 50px;
+				width: 500px;
+				border: 1px solid #000;
+				margin: 40px;
+				margin-top: 180px;
+				font-size: 30px;
+				position: relative;	
+				z-index: 100;			
+			}
+			#div2{
+				height: 50px;
+				width: 0px;
+				background: #91FDFF;
+				position: absolute;
+				top: 181px;
+				left: 49px;
+				
+			}
+		</style>
+		<script src="myBarn.js"></script>
+		<script type="text/javascript">
+			window.onload=function(){
+				var oDiv1=document.getElementById('div1');
+				var oDiv2=document.getElementById('div2');
+				var aSpan=oDiv1.getElementsByTagName('span');
+				var upTimer=null;
+				var back=null;
+				var num=0;
+				for(var i=0;i<10;i++){
+					oDiv1.innerHTML+='<span style="position: absolute;top:5px;left:'+i*50+'px;'+'">+1</span>'
+				}
+				oDiv1.onclick=function(){
+					clearInterval(upTimer);	
+					clearInterval(back);
+					upTimer=setInterval(function(){					
+						doMove(aSpan[num],'top',10,-100,fade(aSpan[num],60));
+						doMove(oDiv2,'width',20,500);
+						fade(oDiv2,150);
+						num++;
+						if(num==aSpan.length){
+							clearInterval(upTimer);	
+						}						
+					},300)	
+					back=setInterval(function(){
+						for(var i=0;i<10;i++){
+					        oDiv1.innerHTML+='<span style="position: absolute;top:5px;left:'+i*50+'px;'+'">+1</span>';
+					        oDiv2.style.width=0;
+				        }
+						
+					},4000)
+				}
+			}
+			
+			
+		</script>
+	</head>
+	<body>
+		<div id="div1"></div>
+		<div id="div2"></div>
+		
+	</body>
+</html>
