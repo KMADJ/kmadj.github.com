@@ -1,0 +1,104 @@
+<!DOCTYPE>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>斌斌学院3</title>
+  </head>
+<body>
+
+  <ul id="source">
+    <li>北京空气质量：<b>90</b></li>
+    <li>上海空气质量：<b>70</b></li>
+    <li>天津空气质量：<b>80</b></li>
+    <li>广州空气质量：<b>50</b></li>
+    <li>深圳空气质量：<b>40</b></li>
+    <li>福州空气质量：<b>32</b></li>
+    <li>成都空气质量：<b>90</b></li>
+  </ul>
+
+  <ul id="resort">
+    <!-- 
+    <li>第一名：北京空气质量：<b>90</b></li>
+    <li>第二名：北京空气质量：<b>90</b></li>
+    <li>第三名：北京空气质量：<b>90</b></li>
+     -->
+
+  </ul>
+
+  <button id="sort-btn">排序</button>
+
+<script type="text/javascript">
+	
+
+
+var source=document.getElementById('source');
+var resort=document.getElementById('resort');
+var aLi=source.getElementsByTagName('li');
+var aB=source.getElementsByTagName('b');
+var oBtn=document.getElementById('sort-btn');
+var data=[];
+var onOff=true;
+var rank=['第一名：','第二名：','第三名：','第四名：','第五名：','第六名：','第七名：'];
+//alert(typeof Number(aB[0].innerHTML));
+
+
+function getData() {
+  
+  for(var i=0;i<aLi.length;i++){
+  	 
+  	data[i]=[aLi[i].innerHTML.slice(0,2),Number(aB[i].innerHTML)];
+  }
+
+  return data;
+}
+
+function sortAqiData(data) {
+    
+   for(var i=0;i<data.length;i++){
+   	
+   	for(var j=i;j<data.length;j++){
+   		
+   		if(data[i][1]>data[j][1]){
+   			
+   			var arr=data[i];
+   			data[i]=data[j];
+   			data[j]=arr;   			
+   		}
+   	}  	
+   }
+   return data;
+}
+
+function render(data) {
+
+for(var i=0;i<data.length;i++){
+		
+    var oLi=document.createElement('li');
+    oLi.innerHTML=rank[i]+data[i][0]+'空气质量:'+data[i][1];
+    resort.appendChild(oLi);
+}
+}
+
+function btnHandle() {
+  var aqiData = getData();
+  aqiData = sortAqiData(aqiData);
+  render(aqiData);
+}
+
+function init() {
+   
+   	oBtn.onclick=function(){
+   		
+   		if(onOff){
+   			btnHandle();
+   			onOff=false;
+   		}
+   }
+  
+}
+
+init();
+
+</script>
+</body>
+</html>
