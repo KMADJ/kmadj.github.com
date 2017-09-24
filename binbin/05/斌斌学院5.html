@@ -23,7 +23,9 @@
 			window.onload = function() {
 
 				var aInp = document.getElementsByTagName('input');
+				
 				var oUl = document.getElementById('ul1');
+				
 				var aLi = oUl.getElementsByTagName('li');
                
 				aInp[1].onclick = function() {
@@ -34,19 +36,27 @@
 						var oLi = document.createElement('li');
 
 						oLi.style.height = aInp[0].value + 'px';
+						
 						oLi.innerHTML = '  ';
 
 						if(oUl.children[0]) {
+							
 							oUl.insertBefore(oLi, oUl.children[0]);
+							
 						} else {
+							
 							oUl.appendChild(oLi);
+							
 						}
 
 						aInp[0].value = '';
-						click();
-						rank();
+						
+						cliRankRemove();
+
 					} else {
+						
 						alert('请输入0-100之间的数字');
+						
 					}
 
 				}
@@ -58,33 +68,31 @@
 						var oLi = document.createElement('li');
 
 						oLi.style.height = aInp[0].value + 'px';
+						
 						oLi.innerHTML = '  ';
 
 						oUl.appendChild(oLi);
 
 						aInp[0].value = '';
-						click();
-						rank();
+						
+						cliRankRemove();	
+						
 					} else {
+						
 						alert('请输入0-100之间的数字');
+						
 					}
 
 				}
 				aInp[3].onclick = function() {
 
-					alert(oUl.firstElementChild.offsetHeight);
-					oUl.removeChild(oUl.firstElementChild);
-					aInp[0].value = '';
-					click();
-					rank();
+					cliRankRemove(oUl.firstElementChild);
+					
 				}
 				aInp[4].onclick = function() {
 
-					alert(oUl.lastElementChild.offsetHeight);
-					oUl.removeChild(oUl.lastElementChild);
-					aInp[0].value = '';
-					click();
-					rank();
+					cliRankRemove(oUl.lastElementChild);
+					
 				}
                 
                 aInp[5].onclick=function(){
@@ -97,42 +105,36 @@
                 				
                 				//alert(1);
                 				var trans=aLi[i].offsetHeight;
+                				
                 				aLi[i].style.height=aLi[j].offsetHeight+'px';
+                				
                 				aLi[j].style.height=trans+'px';
-                			}
-                			
+                			}                			
                 		}
-                	}
-              
+                	}              
                 }
-				function click() {
+				function cliRankRemove(obj) {
 					for(var i = 0; i < aLi.length; i++) {
-
+						
+                        aLi[i].style.left = i*25+5+'px';
+                        
 						aLi[i].onclick = function() {
-
+							
+                            alert('删除元素的高度为：'+oUl.lastElementChild.offsetHeight);
+                            
 							oUl.removeChild(this);
+							
 						}
 					}
-				}
-				function rank(){
-					
-					for(var i = 0; i < aLi.length; i++) {
-
-						aLi[i].style.left = i*25+5+'px';
+					if(obj){
+						
+						alert('删除元素的高度为：'+obj.offsetHeight);
+						
+					    oUl.removeChild(obj);
+					    
+					    aInp[0].value = '';
 					}
-				}				//				aInp[0].focus=function(){
-				//					
-				//					//alert(typeof aInp[0]);
-				//					if(aInp[0].value=='请输入数字') {
-				//						aInp[0].value=='';
-				//					}
-				//				}
-				//				aInp[0].onblur=function(){
-				//					
-				//					if(aInp[0].value=='') aInp[0].value=='请输入数字';
-				//				}
-				//				aInp[0].focus();
-
+				}
 			}
 		</script>
 	</head>
