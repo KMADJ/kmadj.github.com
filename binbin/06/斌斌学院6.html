@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>斌斌学院6</title>
+		<style type="text/css">
+			#txtar {
+				width: 300px;
+				height: 150px;
+			}
+			
+			#ul1 li {
+				color: red;
+				list-style: none;
+				border: 1px solid red;
+				font-size: 25px;
+				float: left;
+				padding: 5px;
+				margin: 10px;
+			}
+			
+		</style>
+		<script type="text/javascript">
+			window.onload = function() {
+
+				var oTxt = document.getElementById('txtar');
+				var aInp = document.getElementsByTagName('input');
+				var oUl = document.getElementById('ul1');
+				var aLi = oUl.getElementsByTagName('li');
+
+				aInp[0].onclick = function() {
+
+					if(oTxt.value) {
+
+						var oLi = document.createElement('li');
+
+						oLi.innerHTML = oTxt.value;
+
+						if(oUl.children[0]) {
+							oUl.insertBefore(oLi, oUl.children[0]);
+						} else {
+							oUl.appendChild(oLi);
+						}
+
+						oTxt.value = '';
+						click();
+					}else{
+						alert('请输入内容');
+					}
+				}
+
+				aInp[1].onclick = function() {
+
+					if(oTxt.value) {
+						var oLi = document.createElement('li');
+
+						oLi.innerHTML = oTxt.value;
+
+						oUl.appendChild(oLi);
+
+						oTxt.value = '';
+						click();
+					}else{
+						alert('请输入内容');
+					}
+				}
+				aInp[2].onclick = function() {
+
+					alert('删除的内容是：' + oUl.firstElementChild.innerHTML);
+					oUl.removeChild(oUl.firstElementChild);
+					oTxt.value = '';
+					click();
+				}
+				aInp[3].onclick = function() {
+
+					alert('删除的内容是：' + oUl.lastElementChild.innerHTML);
+					oUl.removeChild(oUl.lastElementChild);
+					oTxt.value = '';
+					click();
+				}
+				aInp[5].onclick = function() {
+					
+					for(var j=0;j<aLi.length;j++ ){
+						
+						aLi[j].style.color='';
+						aLi[j].style.backgroundColor='';
+					}
+					
+					if(aInp[4].value) {
+											
+						for(var i=0;i<aLi.length;i++){
+							
+							if(aLi[i].innerHTML.indexOf(aInp[4].value,0)!=-1){
+															
+								aLi[i].style.color='white';
+								aLi[i].style.backgroundColor='red';
+							}
+							
+						}
+						aInp[4].value='';
+					}
+				}
+
+				function click() {
+					for(var i = 0; i < aLi.length; i++) {
+
+						aLi[i].onclick = function() {
+
+							alert('删除的内容是：' + this.innerHTML);
+							oUl.removeChild(this);
+						}
+					}
+				}
+			}
+		</script>
+	</head>
+
+	<body>
+		<textarea id="txtar" value=""></textarea ><br />
+		<input type="button" value="左侧入"  id="in-left"/>
+		<input type="button" value="右侧入"  id="in-right"/>		
+		<input type="button" value="左侧出"  id="out-left"/>
+		<input type="button" value="右侧出"  id="out-right"/>
+		<br /><br />
+		<input type="text" id="word" />
+		<input type="button" id="search" value="查找" />
+		<ul id="ul1">
+			
+		</ul>
+
+	</body>
+</html>
