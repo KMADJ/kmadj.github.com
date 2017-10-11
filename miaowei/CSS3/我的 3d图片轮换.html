@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="{CHARSET}">
+		<title></title>
+		<style type="text/css">
+			@-webkit-keyframes show {
+				0% {
+					-webkit-transform: rotateX(180deg);
+					opacity: 0;
+				}
+				57% {
+					-webkit-transform: rotateX(-16deg);
+					opacity: 1;
+				}
+				66% {
+					-webkit-transform: rotateX(14deg);
+				}
+				74% {
+					-webkit-transform: rotateX(-12deg);
+				}
+				81% {
+					-webkit-transform: rotateX(10deg);
+				}
+				87% {
+					-webkit-transform: rotateX(-8deg);
+				}
+				92% {
+					-webkit-transform: rotateX(6deg);
+				}
+				96% {
+					-webkit-transform: rotateX(-4deg);
+				}
+				100% {
+					-webkit-transform: rotateX(0deg);
+				}
+			}
+			@-webkit-keyframes hide {
+				0% {
+					-webkit-transform: rotateX(0deg);
+					opacity: 1;
+				}
+				
+				100% {
+					-webkit-transform: rotateX(-180deg);
+					opacity: 0;
+				}
+			}
+			input {
+				height: 80px;
+				width: 80px;
+				background: #000;
+				color: white;
+				font-size: 20px;
+				text-align: center;
+				line-height: 40px;
+				outline-style: none;
+				position: absolute;
+				border-radius: 50%;
+			}
+			
+			input:nth-of-type(1) {
+				top: 210px;
+				left: 190px;
+			}
+			
+			input:nth-of-type(2) {
+				top: 210px;
+				right: 190px;
+			}
+			
+			#pic {
+				height: 400px;
+				width: 600px;
+				margin: 50px auto;
+				position: relative;
+				-webkit-perspective: 800px;
+				-webkit-transform-style: preserve-3d;
+			}
+			
+			.imgs {
+				height: 400px;
+				width: 600px;
+				position: absolute;
+				top: 0px;
+				left: 0;
+				-webkit-transform-origin: bottom;
+				-webkit-transform: rotateX(180deg);
+				opacity: 0;
+			}
+			
+			.show {
+				-webkit-animation: 1s show linear;
+				-webkit-transform: rotateX(0deg);
+				opacity: 1;
+			}
+			.hide {
+				-webkit-animation: 0.8s hide linear;
+				-webkit-transform: rotateX(-180deg);
+				opacity: 0;
+			}
+		</style>
+		<script>
+			window.onload=function(){
+				
+				var aInp=document.getElementsByTagName('input');
+				var oPic=document.getElementById('pic');
+				var aImg=oPic.getElementsByTagName('img');
+				var i=0;
+				
+				aInp[0].onclick=function(){
+					
+					aImg[i].className='imgs hide ';								
+					i--;
+					if(i==-1){
+						i=aImg.length-1;
+					}
+					aImg[i].className='imgs show';
+				}
+				
+				aInp[1].onclick=function(){
+					
+					aImg[i].className='imgs hide ';								
+					i++;
+					if(i==aImg.length){
+						i=0;						
+					}
+					    aImg[i].className='imgs show';
+					
+				}
+				
+			}
+		</script>
+	</head>
+
+	<body>
+		<input type="button" value="上一张" />
+		<div id="pic">
+			<img src="img/img1.jpg" style="height: 400px;width: 600px;position: absolute;top: 0px;left: 0;" />
+			<img src="img/img2.jpg" class=" imgs "  />
+			<img src="img/img3.jpg" class=" imgs "  />
+			<img src="img/img4.jpg" class=" imgs " />
+			<img src="img/img5.jpg" class=" imgs "  />
+
+		</div>
+		<input type="button" value="下一张" />
+	</body>
+
+</html>
